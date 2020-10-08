@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `
 
-export const LensContainer = styled.a`
+export const LensContainer = styled.li`
   justify-content: center;
   align-items: center;
   display: flex;
@@ -31,6 +31,7 @@ export const LensContainer = styled.a`
   border-radius: 0.8rem;
   padding: 1.2rem;
   cursor: pointer;
+  list-style: none;
 
   h3{
     font-family: -'Helvetica Neue', sans-serif;
