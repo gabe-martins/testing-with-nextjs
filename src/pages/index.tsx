@@ -14,11 +14,11 @@ export default function Home({ glasses }) {
         <main>
           <h2>As lentes certas para você!</h2>
 
-          {glasses.map(() => {
+          {glasses.map((glass) => {
             return (
               <>
-                <LensContainer key={glasses.glassName}>
-                  <h3>Espace Orma Plus</h3>
+                <LensContainer key={glass.glassName}>
+                  <h3>{glass.glassName}</h3>
                 </LensContainer>
               </>
             );
@@ -29,22 +29,11 @@ export default function Home({ glasses }) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`https://gleearapp-backend.herokuapp.com/glass`);
   const data = await res.json();
 
-  const paths = data.map((glasses) => {
-    return { params: { glassName: glasses.glassName } };
-  });
-
-  return {
-    paths,
-    fallback: true,
-  }
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {  const res = await fetch(`https://gleearapp-backend.herokuapp.com/glass`);
-  const data = await res.json();
+  console.log(data)
 
   return {
     props: {
