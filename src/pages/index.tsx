@@ -33,8 +33,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`https://gleearapp-backend.herokuapp.com/glass`);
   const data = await res.json();
 
-  console.log(data)
-
   return {
     props: {
       glasses: data,
