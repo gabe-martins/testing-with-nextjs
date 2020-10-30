@@ -1,8 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import React from "react";
 import Head from "next/head";
 
-import { Container, LensContainer } from "../styles/Pages/Home";
+import { Container } from "../styles/Pages/Home";
+import LensContainer from "../components/LensContainer";
 
 export default function Home({ glasses }) {
   return (
@@ -13,16 +14,7 @@ export default function Home({ glasses }) {
       <body>
         <main>
           <h2>As lentes certas para você!</h2>
-
-          {glasses.map((glass) => {
-            return (
-              <>
-                <LensContainer key={glass.glassName}>
-                  <h3>{glass.glassName}</h3>
-                </LensContainer>
-              </>
-            );
-          })}
+          <LensContainer />
         </main>
       </body>
     </Container>
